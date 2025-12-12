@@ -1,0 +1,89 @@
+class Book {
+  String title;
+  String author;
+  double price;
+
+  Book(this.title, this.author, this.price);
+
+  double discountedPrice(double discountPercent) {
+    return price - (price * discountPercent / 100);
+  }
+
+  void printInfo() {
+    print("Title: $title ,Author: $author ,Price: $price");
+
+  }
+}
+class Employee {
+  String name;
+  double salary;
+  Employee(this.name, this.salary);
+
+}
+class Manager extends Employee {
+  String department ;
+  Manager (String name,double salary,this.department):super(name,salary);
+  void printInfo(){
+    print("Name:$name,Salary:$salary,Department:$department");
+  }
+}
+class Developer extends Employee{
+  String programmingLanguage ;
+  Developer(String name,double salary,this.programmingLanguage):super(name,salary);
+  void printInfo(){
+    print("Name:$name,Salary:$salary,Programming Language:$programmingLanguage");
+  }
+}
+abstract class Appliance{
+  void trunOn();
+  void trunOff();
+}
+class Fan extends Appliance{
+  @override
+  void trunOn() {
+    print("Fan is now running");
+  }
+
+  @override
+  void trunOff() {
+    print("Fan is now stopped");
+  }
+}
+class Light extends Appliance{
+  @override
+  void trunOn() {
+    print("Light is switched on");
+  }
+
+  @override
+  void trunOff() {
+    print("Light is switched off");
+  }
+}
+void main (){
+  Book book1 = Book('Dart Basics','Menhaj',500);
+  Book book2 =Book('Flutter Basics','Jesmin',700);
+  book1.printInfo();
+  print('Discounted Price:${book1.discountedPrice(15)}');
+  book2.printInfo();
+print('Discounted Price:${book2.discountedPrice(20)}');
+
+
+Manager manager = Manager('Menhaj',50000,'IT');
+manager.printInfo();
+Developer developer = Developer('Jesmin',60000,'Dart');
+developer.printInfo();
+
+Fan fan = Fan();
+fan.trunOn();
+fan.trunOff();
+print(" ");
+
+Light light = Light();
+light.trunOn();
+light.trunOff();
+print(" ");
+
+}
+
+
